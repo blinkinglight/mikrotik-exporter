@@ -2,7 +2,7 @@
   "apiVersion": "apps/v1beta1",
   "kind": "Deployment",
   "metadata": {
-    "name": "mikrotik-exporter",
+    "name": "github.com/blinkinglight/mikrotik-exporter",
     "namespace": "prometheus"
   },
   "spec": {
@@ -14,7 +14,7 @@
     "template": {
       "metadata": {
         "labels": {
-          "app": "mikrotik-exporter"
+          "app": "github.com/blinkinglight/mikrotik-exporter"
         },
         "annotations": {
           "prometheus.io/scrape": "true",
@@ -24,14 +24,14 @@
       "spec": {
         "containers": [
           {
-            "name": "mikrotik-exporter",
-            "image": "nshttpd/mikrotik-exporter:044419a",
+            "name": "github.com/blinkinglight/mikrotik-exporter",
+            "image": "nshttpd/github.com/blinkinglight/mikrotik-exporter:044419a",
             "env": [
               {
                 "name": "DEVICE",
                 "valueFrom": {
                   "configMapKeyRef": {
-                    "name": "mikrotik-exporter",
+                    "name": "github.com/blinkinglight/mikrotik-exporter",
                     "key": "device"
                   }
                 }
@@ -40,7 +40,7 @@
                 "name": "ADDRESS",
                 "valueFrom": {
                   "configMapKeyRef": {
-                    "name": "mikrotik-exporter",
+                    "name": "github.com/blinkinglight/mikrotik-exporter",
                     "key": "address"
                   }
                 }
@@ -49,7 +49,7 @@
                 "name": "USER",
                 "valueFrom": {
                   "configMapKeyRef": {
-                    "name": "mikrotik-exporter",
+                    "name": "github.com/blinkinglight/mikrotik-exporter",
                     "key": "user"
                   }
                 }
@@ -58,7 +58,7 @@
                 "name": "PASSWORD",
                 "valueFrom": {
                   "secretKeyRef": {
-                    "name" : "mikrotik-exporter",
+                    "name" : "github.com/blinkinglight/mikrotik-exporter",
                     "key" : "pasword"
                   }
                 }

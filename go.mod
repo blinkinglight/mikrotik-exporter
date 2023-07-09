@@ -1,4 +1,4 @@
-module mikrotik-exporter
+module github.com/blinkinglight/mikrotik-exporter
 
 go 1.13
 

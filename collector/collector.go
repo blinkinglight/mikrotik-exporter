@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	"mikrotik-exporter/config"
+	"github.com/blinkinglight/mikrotik-exporter/config"
 
 	"github.com/miekg/dns"
 	"github.com/prometheus/client_golang/prometheus"

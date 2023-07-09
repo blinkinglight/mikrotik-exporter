@@ -12,4 +12,4 @@ GOOS=linux GOARCH=arm go build .
 docker build -t nshttpd/${NAME}:${VERSION}-armhf -f Dockerfile.armhf .
 docker push nshttpd/${NAME}:${VERSION}-armhf
 
-rm mikrotik-exporter
+rm github.com/blinkinglight/mikrotik-exporter

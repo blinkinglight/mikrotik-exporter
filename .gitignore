@@ -19,5 +19,6 @@
 .vscode
 debug
 
-mikrotik-exporter
+github.com/blinkinglight/mikrotik-exporter
 test-config.yml
+mikrotik-exporter

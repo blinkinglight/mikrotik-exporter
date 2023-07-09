@@ -2,7 +2,7 @@
   "apiVersion": "v1",
   "kind": "ConfigMap",
   "metadata": {
-    "name": "mikrotik-exporter",
+    "name": "github.com/blinkinglight/mikrotik-exporter",
     "namespace": "prometheus"
   },
   "data": {

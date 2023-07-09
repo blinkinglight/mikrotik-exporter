@@ -1,4 +1,4 @@
-[![Docker Pulls](https://img.shields.io/docker/pulls/nshttpd/mikrotik-exporter.svg)](https://hub.docker.com/r/nshttpd/mikrotik-exporter/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/nshttpd/github.com/blinkinglight/mikrotik-exporter.svg)](https://hub.docker.com/r/nshttpd/github.com/blinkinglight/mikrotik-exporter/)
 
 ## prometheus-mikrotik
 
@@ -33,7 +33,7 @@ Create the user to access the API via.
 
 #### Single Device
 
-`./mikrotik-exporter -address 10.10.0.1 -device my_router -password changeme -user prometheus`
+`./github.com/blinkinglight/mikrotik-exporter -address 10.10.0.1 -device my_router -password changeme -user prometheus`
 
 where `address` is the address of your router. `device` is the label name for the device
 in the metrics output to prometheus. The `user` and `password` are the ones you
@@ -44,12 +44,12 @@ User and password flags can be set with the `MIKROTIK_USER` and `MIKROTIK_PASSWO
 ```
 MIKROTIK_USER=prometheus
 MIKROTIK_PASSWORD=changeme
-./mikrotik-exporter -address 10.10.0.1 -device my_router
+./github.com/blinkinglight/mikrotik-exporter -address 10.10.0.1 -device my_router
 ```
 
 #### Config File
 
-`./mikrotik-exporter -config-file config.yml`
+`./github.com/blinkinglight/mikrotik-exporter -config-file config.yml`
 
 where `config-file` is the path to a config file in YAML format.
 

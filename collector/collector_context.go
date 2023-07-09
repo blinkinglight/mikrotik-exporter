@@ -1,7 +1,7 @@
 package collector
 
 import (
-	"mikrotik-exporter/config"
+	"github.com/blinkinglight/mikrotik-exporter/config"
 
 	"github.com/prometheus/client_golang/prometheus"
 	routeros "gopkg.in/routeros.v2"

@@ -12,4 +12,4 @@ GOOS=linux GOARCH=amd64 go build .
 docker build -t nshttpd/${NAME}:${VERSION} .
 docker push nshttpd/${NAME}:${VERSION}
 
-rm mikrotik-exporter
+rm github.com/blinkinglight/mikrotik-exporter

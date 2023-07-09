@@ -11,8 +11,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"mikrotik-exporter/collector"
-	"mikrotik-exporter/config"
+	"github.com/blinkinglight/mikrotik-exporter/collector"
+	"github.com/blinkinglight/mikrotik-exporter/config"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
