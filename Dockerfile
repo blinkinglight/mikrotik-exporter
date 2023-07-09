@@ -1,10 +1,22 @@
-FROM debian:9.9-slim
+FROM golang:1.17-alpine
+
+WORKDIR /app
+
+COPY go.mod ./
+COPY go.sum ./
+RUN go mod download
+
+COPY *.go ./
+
+RUN CGO_ENABLED=0 go build -o /mikrotik-exporter
+
+
+FROM scratch
+WORKDIR /
 
 EXPOSE 9436
 
 COPY scripts/start.sh /app/
-COPY dist/github.com/blinkinglight/mikrotik-exporter_linux_amd64 /app/github.com/blinkinglight/mikrotik-exporter
-
-RUN chmod 755 /app/*
+COPY --from=0 /mikrotik-exporter /app
 
 ENTRYPOINT ["/app/start.sh"]
