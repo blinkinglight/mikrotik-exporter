@@ -1,12 +1,14 @@
-FROM golang:1.17-alpine
+FROM golang:1.20-alpine
 
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
+COPY . c
+WORKDIR /app/c
+
+COPY go.mod .
+COPY go.sum .
 RUN go mod download
 
-COPY *.go ./
 
 RUN CGO_ENABLED=0 go build -o /mikrotik-exporter
 
@@ -16,7 +18,7 @@ WORKDIR /
 
 EXPOSE 9436
 
-COPY scripts/start.sh /app/
-COPY --from=0 /mikrotik-exporter /app
+COPY scripts/start.sh /
+COPY --from=0 /mikrotik-exporter /
 
-ENTRYPOINT ["/app/start.sh"]
+ENTRYPOINT ["/start.sh"]
