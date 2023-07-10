@@ -66,7 +66,7 @@ func (c *healthCollector) fetch(ctx *collectorContext) ([]*proto.Sentence, error
 }
 
 func (c *healthCollector) collectForStat(re *proto.Sentence, ctx *collectorContext) {
-	for _, p := range c.props[:3] {
+	for _, p := range c.props[:5] {
 		c.collectMetricForProperty(p, re, ctx)
 	}
 }
