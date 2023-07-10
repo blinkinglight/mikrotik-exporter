@@ -1,10 +1,11 @@
 package collector
 
 import (
+	"strconv"
+
 	"github.com/prometheus/client_golang/prometheus"
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/routeros.v2/proto"
-	"strconv"
 )
 
 type healthCollector struct {
@@ -22,7 +23,13 @@ func (c *healthCollector) init() {
 	c.props = []string{"voltage", "temperature", "cpu-temperature", "psu1-state", "psu2-state"}
 
 	labelNames := []string{"name", "address"}
-	helpText := []string{"Input voltage to the RouterOS board, in volts", "Temperature of RouterOS board, in degrees Celsius", "Temperature of RouterOS CPU, in degrees Celsius"}
+	helpText := []string{
+		"Input voltage to the RouterOS board, in volts",
+		"Temperature of RouterOS board, in degrees Celsius",
+		"Temperature of RouterOS CPU, in degrees Celsius",
+		"State of PSU1",
+		"State of PSU2",
+	}
 	c.descriptions = make(map[string]*prometheus.Desc)
 	for i, p := range c.props {
 		c.descriptions[p] = descriptionForPropertyNameHelpText("health", p, labelNames, helpText[i])
