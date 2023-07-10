@@ -19,7 +19,7 @@ func newhealthCollector() routerOSCollector {
 }
 
 func (c *healthCollector) init() {
-	c.props = []string{"voltage", "temperature", "cpu-temperature"}
+	c.props = []string{"voltage", "temperature", "cpu-temperature", "psu1-state", "psu2-state"}
 
 	labelNames := []string{"name", "address"}
 	helpText := []string{"Input voltage to the RouterOS board, in volts", "Temperature of RouterOS board, in degrees Celsius", "Temperature of RouterOS CPU, in degrees Celsius"}
