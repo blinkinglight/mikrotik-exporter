@@ -18,7 +18,7 @@ WORKDIR /
 
 EXPOSE 9436
 
-COPY scripts/start.sh /
 COPY --from=0 /mikrotik-exporter /
+COPY scripts/start.sh /start.sh
 
 ENTRYPOINT ["/start.sh"]
