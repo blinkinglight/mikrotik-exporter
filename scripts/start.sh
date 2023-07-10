@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/ash
 
-if [ ! -x /app/mikrotik-exporter ]; then
+if [ ! -x /mikrotik-exporter ]; then
   chmod 755 /mikrotik-exporter
 fi
 
