@@ -1,5 +1,8 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/nshttpd/github.com/blinkinglight/mikrotik-exporter.svg)](https://hub.docker.com/r/nshttpd/github.com/blinkinglight/mikrotik-exporter/)
 
+```
+docker run --rm -it -e CONFIG_FILE=/config.yml -v $(pwd)/config.yml:/config.yml -p 9436:9436 ghcr.io/blinkinglight/mikrotik-exporter:latest
+```
 ## prometheus-mikrotik
 
 tl;dr - prometheus exporter for mikrotik devices
