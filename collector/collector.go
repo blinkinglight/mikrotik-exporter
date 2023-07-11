@@ -104,6 +104,13 @@ func WithHealth() Option {
 	}
 }
 
+// WithPSU enables board PSU metrics
+func WithPSU() Option {
+	return func(c *collector) {
+		c.collectors = append(c.collectors, newpsuCollector())
+	}
+}
+
 // WithPOE enables PoE metrics
 func WithPOE() Option {
 	return func(c *collector) {
