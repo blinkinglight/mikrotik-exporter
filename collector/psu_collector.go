@@ -27,7 +27,7 @@ func (c *psuCollector) init() {
 	}
 	c.descriptions = make(map[string]*prometheus.Desc)
 	for i, p := range c.props {
-		c.descriptions[p] = descriptionForPropertyNameHelpText("health", p, labelNames, helpText[i])
+		c.descriptions[p] = descriptionForPropertyNameHelpText("psu", p, labelNames, helpText[i])
 	}
 }
 
@@ -44,7 +44,11 @@ func (c *psuCollector) collect(ctx *collectorContext) error {
 	}
 
 	for _, re := range stats {
-		c.collectForStat(re, ctx)
+		if metric, ok := re.Map["name"]; ok {
+			c.collectMetricForProperty(metric, re, ctx)
+		} else {
+			c.collectForStat(re, ctx)
+		}
 	}
 
 	return nil
@@ -64,7 +68,7 @@ func (c *psuCollector) fetch(ctx *collectorContext) ([]*proto.Sentence, error) {
 }
 
 func (c *psuCollector) collectForStat(re *proto.Sentence, ctx *collectorContext) {
-	for _, p := range c.props {
+	for _, p := range c.props[:2] {
 		c.collectMetricForProperty(p, re, ctx)
 	}
 }
@@ -77,6 +81,7 @@ func (c *psuCollector) collectMetricForProperty(property string, re *proto.Sente
 			return
 		}
 	}
+
 	var v float64
 	if value == "ok" {
 		v = 1
@@ -85,7 +90,8 @@ func (c *psuCollector) collectMetricForProperty(property string, re *proto.Sente
 	} else {
 		return
 	}
-
+	// log.Printf("%v", re.Map)
 	desc := c.descriptions[name]
+	// log.Printf("%v", desc)
 	ctx.ch <- prometheus.MustNewConstMetric(desc, prometheus.GaugeValue, v, ctx.device.Name, ctx.device.Address)
 }
