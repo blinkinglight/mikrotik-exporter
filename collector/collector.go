@@ -29,7 +29,7 @@ const (
 	dnsPort    = 53
 
 	// DefaultTimeout defines the default timeout when connecting to a router
-	DefaultTimeout = 5 * time.Second
+	DefaultTimeout = 15 * time.Second
 )
 
 var (
